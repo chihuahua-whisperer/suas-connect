@@ -385,6 +385,27 @@ class GoogleDistanceMatrixCall {
       );
 }
 
+class DeleteUserCall {
+  static Future<ApiCallResponse> call({
+    String? user = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'delete user',
+      apiUrl: 'https://hooks.zapier.com/hooks/catch/16118497/31lcpzu/',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'user': user,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

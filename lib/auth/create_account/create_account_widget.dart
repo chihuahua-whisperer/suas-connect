@@ -185,7 +185,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Register in SUAS,',
+                                  'Register in SUAS',
                                   style:
                                       FlutterFlowTheme.of(context).displaySmall,
                                 ),

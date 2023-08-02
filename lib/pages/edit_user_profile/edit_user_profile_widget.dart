@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
+import '/components/delete_account/delete_account_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -82,7 +83,45 @@ class _EditUserProfileWidgetState extends State<EditUserProfileWidget> {
             'Edit your Profile',
             style: FlutterFlowTheme.of(context).headlineMedium,
           ),
-          actions: [],
+          actions: [
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 18.0, 0.0),
+              child: FlutterFlowIconButton(
+                borderRadius: 20.0,
+                borderWidth: 0.0,
+                buttonSize: 30.0,
+                icon: Icon(
+                  Icons.delete_outlined,
+                  color: FlutterFlowTheme.of(context).error,
+                  size: 24.0,
+                ),
+                onPressed: () async {
+                  logFirebaseEvent('EDIT_USER_PROFILE_delete_outlined_ICN_ON');
+                  logFirebaseEvent('IconButton_bottom_sheet');
+                  await showModalBottomSheet(
+                    isScrollControlled: true,
+                    backgroundColor: Colors.transparent,
+                    enableDrag: false,
+                    useSafeArea: true,
+                    context: context,
+                    builder: (context) {
+                      return GestureDetector(
+                        onTap: () => FocusScope.of(context)
+                            .requestFocus(_model.unfocusNode),
+                        child: Padding(
+                          padding: MediaQuery.viewInsetsOf(context),
+                          child: Container(
+                            height: 190.0,
+                            child: DeleteAccountWidget(),
+                          ),
+                        ),
+                      );
+                    },
+                  ).then((value) => setState(() {}));
+                },
+              ),
+            ),
+          ],
           centerTitle: false,
           elevation: 0.0,
         ),
